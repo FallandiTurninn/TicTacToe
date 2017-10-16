@@ -3,10 +3,10 @@ apply plugin: 'application'
 
 mainClassName = 'is.ru.hugb.TestRun'
 
-repositories {
-	mavenCentral()
+dependencies {
+  testCompile 'junit:junit:4.12'
 }
 
-dependencies {
-	compile 'joda-time:joda-time:2.9.9'
+repositories {
+    jcenter()
 }
