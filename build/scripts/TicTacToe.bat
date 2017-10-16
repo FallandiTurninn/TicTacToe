@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\TicTacToe.jar;%APP_HOME%\lib\joda-time-2.9.9.jar
+set CLASSPATH=%APP_HOME%\lib\TicTacToe.jar
 
 @rem Execute TicTacToe
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %TIC_TAC_TOE_OPTS%  -classpath "%CLASSPATH%" is.ru.hugb.TestRun %CMD_LINE_ARGS%
