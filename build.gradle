@@ -1,0 +1,12 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'is.ru.hugb.TestRun'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'joda-time:joda-time:2.9.9'
+}
