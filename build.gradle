@@ -9,10 +9,6 @@ dependencies {
   compile 'com.sparkjava:spark-core:2.6.0'
 }
 
-plugins {
-  id "com.heroku.sdk.heroku-gradle" version "0.2.0"
-}
-
 repositories {
     jcenter()
 }
