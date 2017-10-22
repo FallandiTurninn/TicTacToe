@@ -1,1 +1,5 @@
 language: java
+
+notifications:
+  email: false
+  slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44
