@@ -1,11 +1,12 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'is.ru.hugb.TestRun'
+mainClassName = 'is.ru.hugb.TicTacToe'
 version '0.1'
 
 dependencies {
   testCompile 'junit:junit:4.12'
+  compile 'com.sparkjava:spark-core:2.6.0'
 }
 
 repositories {
