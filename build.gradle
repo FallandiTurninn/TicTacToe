@@ -13,6 +13,8 @@ repositories {
     jcenter()
 }
 
+task stage (dependsOn: installDist)
+
 task fatJar(type: Jar) {
     tasks.withType(Jar) {
         destinationDir = file("$rootDir/buildToMove/New_libs")
