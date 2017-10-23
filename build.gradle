@@ -1,37 +1,20 @@
-apply plugin: 'java'
+apply plugin: 'java-library'
 apply plugin: 'application'
 
 mainClassName = 'is.ru.hugb.TicTacToe'
 version '0.1'
 
-dependencies {
-  testCompile 'junit:junit:4.12'
-  compile 'com.sparkjava:spark-core:2.6.0'
-}
-
 repositories {
     jcenter()
 }
 
+dependencies {
+    // Dependencies
+    compile 'com.sparkjava:spark-core:2.6.0'
+
+    // Test dependencies
+    testImplementation 'junit:junit:4.12'
+}
+
 task stage(dependsOn: ['installDist'])
 
-task fatJar(type: Jar) {
-    tasks.withType(Jar) {
-        destinationDir = file("$rootDir/buildToMove/New_libs")
-    }
-	manifest {
-        attributes 'Implementation-Title': 'Gradle Jar File Example',
-        	'Implementation-Version': version,
-        	'Main-Class': 'is.ru.hugb.TestRun'
-    }
-    baseName = project.name
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-	
-}
-
-task move(type: Exec){
-	dependsOn 'fatJar'
-	tasks.findByName('move').mustRunAfter 'fatJar'
-	commandLine 'sh', './bin/move.sh'	
-}
