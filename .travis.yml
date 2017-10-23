@@ -8,3 +8,5 @@ deploy:
   app: tranquil-castle-98562
   on:
     repo: FallandiTurninn/TicTacToe
+before_install:
+ - chmod +x gradlew
