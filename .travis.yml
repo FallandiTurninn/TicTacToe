@@ -3,5 +3,8 @@ notifications:
   email: false
   slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44
 deploy:
-  api_key:
-    secure: XGbJz7UmhuWZDluU+uC+1lgm7MUectS0VnliCEto1EP1eNOA4SLEtA9I8RoJf9V/Mr8NdDMSsWRukAsjNAhzU1ZfW9KTl8T8fOorw3W5Y0a/HI5UV45cW0IgL9nVKTqE087HujHKfBXv/LI/W2qFOVT4sbR4zuzIEa7fUsNL+sL/HsCpQmOcnOur/k2roTKnxkb7GHHmCbtgJflYQr3M61fJuin7ez1Ia6zhbiRmk/wFwT53y+Exd84Da4o1cBnOOGdjAkjmhSPtZ1OXo+orj4ekfb7yQi3MPIz9ZoHV6j7AY9OX0LxPHmQhz/i1ChjbW0vVW85neLJSIBTodPRMD20jkPiBlg/M508o3/l7jlARKl5sWlWb0GSdStZCwP1t8iTU4pG+l1fL7ImalZwRJN7BAdLGMOu9NF//LqxDhDzv9OJ2aNUMsKlRfP+0PZaYkN954c6h8aOl8rcOmgLg6krnQVzZ2xJHEWwopEyI9qni3aU7G/p0M+AFPodAkF8fK8Syv/kG7TCDsTTWPGudOs1SEVadh/mqQKBmyODX8qbaeoHnqymTrjnsNt89F48hmNkut6B0YpNMXg8Gu/4N8HD81N5mNeTr/pO6wLZBzkHan0uh+p9Lp5tgt6eadsB4Kw/4niEmc3R7w9Mwnh3GBx848f36otHLqdTs/k3di/8=
+  provider: heroku
+  api_key: acb27651-119b-486d-991a-7989c9b0cd23
+  app: tranquil-castle-98562
+  on:
+    repo: FallandiTurninn/TicTacToe
