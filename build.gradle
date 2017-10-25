@@ -1,7 +1,7 @@
 apply plugin: 'java-library'
 apply plugin: 'application'
 
-mainClassName = 'is.ru.hugb.TicTacToe'
+mainClassName = 'is.ru.hugb.Client'
 version '0.1'
 
 repositories {
