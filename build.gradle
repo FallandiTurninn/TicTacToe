@@ -12,6 +12,7 @@ repositories {
 dependencies {
     // Dependencies
     compile 'com.sparkjava:spark-core:2.6.0'
+    compile 'com.sparkjava:spark-template-handlebars:2.5.5'
 
     // Test dependencies
     testImplementation 'junit:junit:4.12'
