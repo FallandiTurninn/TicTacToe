@@ -1,11 +1,7 @@
 apply plugin: 'java-library'
 apply plugin: 'application'
 
-// Client main function
 mainClassName = 'is.ru.hugb.Client'
-// UI main function
-//mainClassName = 'is.ru.hugb.WebUI'
-
 version '0.1'
 
 repositories {
