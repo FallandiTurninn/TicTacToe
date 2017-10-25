@@ -1,7 +1,7 @@
 apply plugin: 'java-library'
 apply plugin: 'application'
 
-mainClassName = 'is.ru.hugb.Client'
+//mainClassName = 'is.ru.hugb.Client'
 mainClassName = 'is.ru.hugb.WebUI'
 version '0.1'
 
@@ -13,6 +13,8 @@ repositories {
 dependencies {
     // Dependencies
     compile 'com.sparkjava:spark-core:2.6.0'
+    compile "com.sparkjava:spark-template-handlebars:2.5.5"
+    compile 'org.slf4j:slf4j-simple:1.7.21'
 
     // Test dependencies
     testImplementation 'junit:junit:4.12'

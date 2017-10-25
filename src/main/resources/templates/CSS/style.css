@@ -1,0 +1,57 @@
+html { height: 100%; }
+body { height: 100%; }
+
+#mainContainer {
+    padding: 5px;
+    width: 900px;
+    margin: 0 auto;
+    height: 100%;
+    background: blue;
+}
+
+.dynHeader {
+    background: green;
+    padding: 10px;
+}
+
+.startContainer {
+    background: red;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+td {
+    width: 160px;
+    border: 6px solid #222;
+}
+
+td:after {
+    content: '';
+    display: block;
+    margin-top: 100%;
+}
+
+td:first-of-type {
+    border-left-color: transparent;
+    border-top-color: transparent;
+}
+
+td:nth-of-type(2) {
+    border-top-color: transparent;
+}
+
+td:nth-of-type(3) {
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+
+.bottom-td {
+    border-bottom-color: transparent;
+}
+
+td:hover {
+    background: red;
+}
