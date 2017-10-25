@@ -10,7 +10,7 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 public class WebUI {
     
     public static void main(String[] args) {
-        //port(getHerokuPort());
+        port(getHerokuPort());
         staticFileLocation("/public");
          
         Map map = new HashMap();
@@ -50,7 +50,7 @@ public class WebUI {
         
         
     }
-/*
+
     static int getHerokuPort() {
         ProcessBuilder psb = new ProcessBuilder();
 		if (psb.environment().get("PORT") != null) {
@@ -58,5 +58,4 @@ public class WebUI {
 		}
 		return 4567;
     }
-    */
 }
