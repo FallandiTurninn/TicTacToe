@@ -14,6 +14,7 @@ public class TicTacToe implements Game {
 	public void setup() {
 		data = new int[GRID_SIZE][GRID_SIZE];
 		currentPlayer = 1;
+		totalMoves = 0;
 	}
 
 	@Override
