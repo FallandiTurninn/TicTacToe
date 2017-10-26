@@ -37,7 +37,7 @@ public class TicTacToe implements Game {
 		int row = getRow(id);
 		int column = getColumn(id); 
 		data[row][column] = currentPlayer;
-		currentPlayer = currentPlayer == 1 ? 2 : 1;
+		currentPlayer = getNextPlayer(currentPlayer);
 		totalMoves++;
 		return true;
 	}
@@ -54,25 +54,29 @@ public class TicTacToe implements Game {
 	public int getState() {
 		int countSide1 = 0;
 		int countSide2 = 0;
-		int lastPlayer = currentPlayer == 1 ? 2 : 1;
+		// We only need to check the last player's move
+		// I get the next player as the last player is the next player
+		int lastPlayer = getNextPlayer(currentPlayer);
 		for (int i = 0; i < data.length; i++) {
 			int countRow = 0;
 			int countColumn = 0;
 
-
+			// Check the diagonal line starting from coordinates (0, 0)
 			if(data[i][i] == lastPlayer) {
 				countSide1++;
 			}
 
+			// Check the diagonal line starting from coordinates (0, GRID_SIZE - 1)
 			if(data[i][data.length - i - 1] == lastPlayer) {
 				countSide2++;
 			}
-			
+
 			for (int j = 0; j < data[i].length; j++) {
-				// horizontal & vertical
+				// Check for a vertical line
 				if (data[j][i] == lastPlayer)  {
 					countRow++;
 				}
+				// Check for a horizontal line
 				if (data[i][j] == lastPlayer)  {
 					countColumn++;
 				}
@@ -88,6 +92,7 @@ public class TicTacToe implements Game {
 			return lastPlayer;
 		}
 
+		// Check for a tie
 		if(totalMoves == GRID_SIZE * GRID_SIZE) {
 			return 3;
 		}
@@ -98,6 +103,10 @@ public class TicTacToe implements Game {
 
 	}
 
+
+	private static int getNextPlayer(int player) {
+		return player == 1 ? 2 : 1;
+	}
 
 	private static int getRow(int id) {
 		return id / GRID_SIZE;
