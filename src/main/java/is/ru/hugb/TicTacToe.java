@@ -2,13 +2,17 @@ package is.ru.hugb;
 
 public class TicTacToe implements Game {
 
+	// The size of the grid size (GRID_SIZE x GRID_SIZE)
+	private static final int GRID_SIZE = 3;
+
 	// state 0 = empty, state 1 = X, state 2 = O
 	private int[][] data;
 	private int currentPlayer;
+	private int totalMoves;
 
 	@Override
 	public void setup() {
-		data = new int[3][3];
+		data = new int[GRID_SIZE][GRID_SIZE];
 		currentPlayer = 1;
 	}
 
@@ -33,6 +37,7 @@ public class TicTacToe implements Game {
 		int column = getColumn(id); 
 		data[row][column] = currentPlayer;
 		currentPlayer = currentPlayer == 1 ? 2 : 1;
+		totalMoves++;
 		return true;
 	}
 
@@ -46,96 +51,60 @@ public class TicTacToe implements Game {
 
 	// Returns the current state of the game. 0 = keep going, 1 = X wins, 2 = O wins, 3 = tie
 	public int getState() {
-		int xCountSide1 = 0;
-		int oCountSide1 = 0;
-		int xCountSide2 = 0;
-		int oCountSide2 = 0;
+		int countSide1 = 0;
+		int countSide2 = 0;
+		int lastPlayer = currentPlayer == 1 ? 2 : 1;
 		for (int i = 0; i < data.length; i++) {
-			int xCountRow = 0;
-			int oCountRow = 0;
-			int xCountColumn = 0;
-			int oCountColumn = 0;
+			int countRow = 0;
+			int countColumn = 0;
 
 			if(i == 0) {
 				// side1
-				if(data[i][0] == 1) {
-					xCountSide1++;
+				if(data[i][0] == lastPlayer) {
+					countSide1++;
 				}
-
-				if(data[i][0] == 2) {
-					oCountSide1++;
-				}
-
 				// side 2
-				if(data[i][2] == 1) {
-					xCountSide2++;
-				}
-
-				if(data[i][2] == 2) {
-					oCountSide2++;
+				if(data[i][2] == lastPlayer) {
+					countSide2++;
 				}
 			} else if(i == 1) {
-				if(data[i][1] == 1) {
-					xCountSide1++;
-					xCountSide2++;
+				if(data[i][1] == lastPlayer) {
+					countSide1++;
+					countSide2++;
 				}
-				if(data[i][1] == 2) {
-					oCountSide1++;
-					oCountSide2++;
-				}
+
 			} else if(i == 2) {
 				// side2
-				if(data[i][0] == 1) {
-					xCountSide2++;
+				if(data[i][0] == lastPlayer) {
+					countSide2++;
 				}
-
-				if(data[i][0] == 2) {
-					oCountSide2++;
-				}
-
 				// side 1
-				if(data[i][2] == 1) {
-					xCountSide1++;
-				}
-
-				if(data[i][2] == 2) {
-					oCountSide1++;
+				if(data[i][2] == lastPlayer) {
+					countSide1++;
 				}
 			}
-
-
 			for (int j = 0; j < data[i].length; j++) {
-
 				// horizontal & vertical
-				if (data[j][i] == 1)  {
-					xCountRow++;
+				if (data[j][i] == lastPlayer)  {
+					countRow++;
 				}
-				if (data[j][i] == 2)  {
-					oCountRow++;
-				}
-
-				if (data[i][j] == 1)  {
-					xCountColumn++;
-				}
-				if (data[i][j] == 2)  {
-					oCountColumn++;
+				if (data[i][j] == lastPlayer)  {
+					countColumn++;
 				}
 
 			}
 
-			if(xCountRow > 2 || xCountColumn > 2) {
-				return 1;
-			}
-			if(oCountRow > 2 || oCountColumn > 2) {
-				return 2;
+			if(countRow == GRID_SIZE || countColumn == GRID_SIZE) {
+				return lastPlayer;
 			}
 		}
 
-		if(xCountSide1 > 2 || xCountSide2 > 2) {
-			return 1;
+		if(countSide1 == GRID_SIZE || countSide2 == GRID_SIZE) {
+			return lastPlayer;
 		}
-		if(oCountSide1 > 2 || oCountSide2 > 2) {
-			return 2;
+
+		if(totalMoves == GRID_SIZE * GRID_SIZE) {
+			return 3;
 		}
 		return 0;
 	}
@@ -146,11 +115,11 @@ public class TicTacToe implements Game {
 
 
 	private static int getRow(int id) {
-		return id / 3;
+		return id / GRID_SIZE;
 	}
 
 	private int getColumn(int id) {
-		return id % 3;
+		return id % GRID_SIZE;
 	}
 
 }

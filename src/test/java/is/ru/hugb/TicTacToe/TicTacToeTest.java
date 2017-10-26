@@ -70,6 +70,22 @@ public class TicTacToeTest {
         assertEquals(1, game.getState());
     }
 
+        @Test
+    public void getStateTieTest() {
+        TicTacToe game = new TicTacToe();
+        game.setup();
+        game.setBlockState(0);
+        game.setBlockState(1);
+        game.setBlockState(2);
+        game.setBlockState(3);
+        game.setBlockState(5);
+        game.setBlockState(4);
+        game.setBlockState(6);
+        game.setBlockState(8);
+        game.setBlockState(7);
+        assertEquals(3, game.getState());
+    }
+
 
     /*
     @Test
