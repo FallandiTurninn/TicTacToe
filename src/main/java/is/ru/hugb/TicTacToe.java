@@ -1,30 +1,27 @@
 package is.ru.hugb;
 
-public class TicTacToe implements Game {
+public class TicTacToe {
 
 	// state 0 = empty, state 1 = X, state 2 = O
 	private int[][] data;
 	private int currentPlayer;
 	private int totalMoves;
 	private int gridSize;
+	private boolean twoPlayer; // TODO
 
-	@Override
 	public void setup() {
+		setup(twoPlayer);
+	}
+
+	public void setup(boolean twoPlayer) {
 		data = new int[gridSize][gridSize];
 		currentPlayer = 1;
 		totalMoves = 0;
 	}
 
-	@Override
-	public int loop() {
-		// 0 continue
-		// -1 exit
-
-		return 0;
-	}
-
 	public TicTacToe(int gridSize) {
 		this.gridSize = gridSize;
+		twoPlayer = true;
 	}
 
 	// Sets the state of an individual block with a set row and column based on id
@@ -102,7 +99,7 @@ public class TicTacToe implements Game {
 		return id / gridSize;
 	}
 
-	// Returns the column of a cell based on the id and grid sizde
+	// Returns the column of a cell based on the id and grid size
 	private static int getColumn(int id, int gridSize) {
 		return id % gridSize;
 	}

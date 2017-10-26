@@ -7,12 +7,6 @@ import org.junit.Test;
 public class TicTacToeTest {
 
     @Test
-    public void loopTest() {
-        TicTacToe game = new TicTacToe(3);
-        assertEquals(0, game.loop());
-    }
-
-    @Test
     public void setBlockStateTest() {
         TicTacToe game = new TicTacToe(3);
         game.setup();
@@ -86,37 +80,4 @@ public class TicTacToeTest {
         assertEquals(3, game.getState());
     }
 
-
-    /*
-    @Test
-    public void sayHiTest() {
-        TicTacToe game = new TicTacToe();
-        assertEquals("Hi!", game.sayHi());
-    }
-    
-    @Test
-    public void startsGame() {
-        
-    }
-    
-    @Test
-    public void gameIsOverTest() {
-        
-    }
-    
-    @Test
-    public void gameIsNotOverTest() {
-        
-    }
-    
-    @Test
-    public void winnerTest() {
-        
-    }
-    
-    @Test
-    public void drawTest() {
-        
-    }
-	*/
 }

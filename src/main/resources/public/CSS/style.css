@@ -46,7 +46,6 @@ table {
 }
 
 td {
-    display: table-cell;
     border: 3px solid #222;
 }
 
