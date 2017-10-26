@@ -59,31 +59,15 @@ public class TicTacToe implements Game {
 			int countRow = 0;
 			int countColumn = 0;
 
-			if(i == 0) {
-				// side1
-				if(data[i][0] == lastPlayer) {
-					countSide1++;
-				}
-				// side 2
-				if(data[i][2] == lastPlayer) {
-					countSide2++;
-				}
-			} else if(i == 1) {
-				if(data[i][1] == lastPlayer) {
-					countSide1++;
-					countSide2++;
-				}
 
-			} else if(i == 2) {
-				// side2
-				if(data[i][0] == lastPlayer) {
-					countSide2++;
-				}
-				// side 1
-				if(data[i][2] == lastPlayer) {
-					countSide1++;
-				}
+			if(data[i][i] == lastPlayer) {
+				countSide1++;
 			}
+
+			if(data[i][data.length - i - 1] == lastPlayer) {
+				countSide2++;
+			}
+			
 			for (int j = 0; j < data[i].length; j++) {
 				// horizontal & vertical
 				if (data[j][i] == lastPlayer)  {
