@@ -10,45 +10,35 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 public class WebUI {
     
     public static void main(String[] args) {
+        TicTacToe ttt = new TicTacToe(3);
+
         port(getHerokuPort());
         staticFileLocation("/public");
-         
-        Map map = new HashMap();
+        
+        // main site
         get("/", (req, res) -> {
             return new ModelAndView(null, "start-game.hbs"); 
         }, new HandlebarsTemplateEngine());
         
-        /*
-            post aðgerð til þess að hefja leik frá index
-        */
+        // post function to start a game from index
         post("/game", (req, res) -> {
-            Map<String, String> model = new HashMap<>();
-            // gameMode er annað hvort 1 eða 2 fer eftir "one player" eða "two player"
-            model.put("gameMode", req.queryParams("gameMode"));
-            /*
-                Hér er hægt að setja inn kall í einhverja lógík.
-                Hægt að dæla upplýsingum inn í model.
-            */
-            return new ModelAndView(model, "board.hbs");    
+            // gameMode is either 1 or 2. 
+            String gameMode = req.queryParams("gameMode");
+            ttt.setup(gameMode.equals("2"));
+            return new ModelAndView(null, "board.hbs");    
         }, new HandlebarsTemplateEngine());
         
-        /*
-            post aðgerð fyrir hvern leik 
-        */
+        // post function which gets called after every 'move' in tic tac toe
         post("/game/move", (req, res) -> {
-            Map<String, String> model = new HashMap<>();
-            
-            String data = req.queryParams("column");
-            
-            /*
-                Hér er hægt að setja inn kall í einhverja lógík.
-                Hægt að dæla upplýsingum inn í model.
-            */
-             return data;
-        });
-        
-        
-        
+            int id = Integer.parseInt(req.queryParams("id"));
+            int state = ttt.getState();
+            if(state > 0) {
+                ttt.setup();
+                return -1;
+            }
+            ttt.setBlockState(id);
+            return (ttt.getState()) | (ttt.getBlockState(id) << 8);
+        }); 
     }
 
     static int getHerokuPort() {
