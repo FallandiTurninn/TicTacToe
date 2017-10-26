@@ -8,20 +8,20 @@ public class TicTacToeTest {
 
     @Test
     public void loopTest() {
-        TicTacToe game = new TicTacToe();
+        TicTacToe game = new TicTacToe(3);
         assertEquals(0, game.loop());
     }
 
     @Test
     public void setBlockStateTest() {
-        TicTacToe game = new TicTacToe();
+        TicTacToe game = new TicTacToe(3);
         game.setup();
         assertEquals(true, game.setBlockState(0));
     }
 
     @Test
     public void getBlockStateTest() {
-        TicTacToe game = new TicTacToe();
+        TicTacToe game = new TicTacToe(3);
         game.setup();
         game.setBlockState(0);
         assertEquals(1, game.getBlockState(0));
@@ -29,14 +29,14 @@ public class TicTacToeTest {
 
     @Test
     public void getStateTest() {
-        TicTacToe game = new TicTacToe();
+        TicTacToe game = new TicTacToe(3);
         game.setup();
         assertEquals(0, game.getState());
     }
 
     @Test
     public void getStateXWinnerTest1() {
-        TicTacToe game = new TicTacToe();
+        TicTacToe game = new TicTacToe(3);
         game.setup();
         game.setBlockState(0);
         game.setBlockState(3);
@@ -48,7 +48,7 @@ public class TicTacToeTest {
 
     @Test
     public void getStateXWinnerTest2() {
-        TicTacToe game = new TicTacToe();
+        TicTacToe game = new TicTacToe(3);
         game.setup();
         game.setBlockState(2);
         game.setBlockState(3);
@@ -60,7 +60,7 @@ public class TicTacToeTest {
 
     @Test
     public void getStateXWinnerTest3() {
-        TicTacToe game = new TicTacToe();
+        TicTacToe game = new TicTacToe(3);
         game.setup();
         game.setBlockState(0);
         game.setBlockState(1);
@@ -72,7 +72,7 @@ public class TicTacToeTest {
 
         @Test
     public void getStateTieTest() {
-        TicTacToe game = new TicTacToe();
+        TicTacToe game = new TicTacToe(3);
         game.setup();
         game.setBlockState(0);
         game.setBlockState(1);

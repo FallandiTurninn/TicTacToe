@@ -3,7 +3,7 @@ package is.ru.hugb;
 public class Client {
 
 	public static void main(String[] args) {
-		Game game = new TicTacToe();
+		Game game = new TicTacToe(3);
 		GameRender gameRender = new TicTacToeRender(game);
 		game.setup();
 		gameRender.setup();

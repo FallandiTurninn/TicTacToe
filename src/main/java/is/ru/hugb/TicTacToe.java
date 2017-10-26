@@ -2,17 +2,15 @@ package is.ru.hugb;
 
 public class TicTacToe implements Game {
 
-	// The size of the grid size (GRID_SIZE x GRID_SIZE)
-	private static final int GRID_SIZE = 3;
-
 	// state 0 = empty, state 1 = X, state 2 = O
 	private int[][] data;
 	private int currentPlayer;
 	private int totalMoves;
+	private int gridSize;
 
 	@Override
 	public void setup() {
-		data = new int[GRID_SIZE][GRID_SIZE];
+		data = new int[gridSize][gridSize];
 		currentPlayer = 1;
 		totalMoves = 0;
 	}
@@ -25,8 +23,8 @@ public class TicTacToe implements Game {
 		return 0;
 	}
 
-	public TicTacToe() {
-		
+	public TicTacToe(int gridSize) {
+		this.gridSize = gridSize;
 	}
 
 	// Sets the state of an individual block with a set row and column based on id
@@ -34,8 +32,8 @@ public class TicTacToe implements Game {
 		if (getBlockState(id) > 0) {
 			return false;
 		}
-		int row = getRow(id);
-		int column = getColumn(id); 
+		int row = getRow(id, gridSize);
+		int column = getColumn(id, gridSize); 
 		data[row][column] = currentPlayer;
 		currentPlayer = getNextPlayer(currentPlayer);
 		totalMoves++;
@@ -44,8 +42,8 @@ public class TicTacToe implements Game {
 
 	// Returns the state of an individual block with a set row and column based on id
 	public int getBlockState(int id) {
-		int row = getRow(id);
-		int column = getColumn(id); 
+		int row = getRow(id, gridSize);
+		int column = getColumn(id, gridSize); 
 		return data[row][column];
 	}
 
@@ -66,7 +64,7 @@ public class TicTacToe implements Game {
 				countSide1++;
 			}
 
-			// Check the diagonal line starting from coordinates (0, GRID_SIZE - 1)
+			// Check the diagonal line starting from coordinates (0, gridSize - 1)
 			if(data[i][data.length - i - 1] == lastPlayer) {
 				countSide2++;
 			}
@@ -83,37 +81,32 @@ public class TicTacToe implements Game {
 
 			}
 
-			if(countRow == GRID_SIZE || countColumn == GRID_SIZE) {
+			if(countRow == gridSize || countColumn == gridSize) {
 				return lastPlayer;
 			}
 		}
 
-		if(countSide1 == GRID_SIZE || countSide2 == GRID_SIZE) {
+		if(countSide1 == gridSize || countSide2 == gridSize) {
 			return lastPlayer;
 		}
 
 		// Check for a tie
-		if(totalMoves == GRID_SIZE * GRID_SIZE) {
+		if(totalMoves == gridSize * gridSize) {
 			return 3;
 		}
 		return 0;
 	}
 
-	public void reset() {
-
+	private static int getRow(int id, int gridSize) {
+		return id / gridSize;
 	}
 
+	private static int getColumn(int id, int gridSize) {
+		return id % gridSize;
+	}
 
 	private static int getNextPlayer(int player) {
 		return player == 1 ? 2 : 1;
-	}
-
-	private static int getRow(int id) {
-		return id / GRID_SIZE;
-	}
-
-	private int getColumn(int id) {
-		return id % GRID_SIZE;
 	}
 
 }
