@@ -97,14 +97,17 @@ public class TicTacToe implements Game {
 		return 0;
 	}
 
+	// Returns the row of a cell based on the id and the grid size
 	private static int getRow(int id, int gridSize) {
 		return id / gridSize;
 	}
 
+	// Returns the column of a cell based on the id and grid sizde
 	private static int getColumn(int id, int gridSize) {
 		return id % gridSize;
 	}
 
+	// Return the player next up in the game
 	private static int getNextPlayer(int player) {
 		return player == 1 ? 2 : 1;
 	}

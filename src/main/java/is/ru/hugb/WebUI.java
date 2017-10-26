@@ -10,6 +10,8 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 public class WebUI {
     
     public static void main(String[] args) {
+        TicTacToe ttt = new TicTacToe(3);
+
         port(getHerokuPort());
         staticFileLocation("/public");
          
@@ -25,10 +27,7 @@ public class WebUI {
             Map<String, String> model = new HashMap<>();
             // gameMode er annað hvort 1 eða 2 fer eftir "one player" eða "two player"
             model.put("gameMode", req.queryParams("gameMode"));
-            /*
-                Hér er hægt að setja inn kall í einhverja lógík.
-                Hægt að dæla upplýsingum inn í model.
-            */
+            ttt.setup();
             return new ModelAndView(model, "board.hbs");    
         }, new HandlebarsTemplateEngine());
         
@@ -36,19 +35,15 @@ public class WebUI {
             post aðgerð fyrir hvern leik 
         */
         post("/game/move", (req, res) -> {
-            Map<String, String> model = new HashMap<>();
-            
-            String data = req.queryParams("column");
-            
-            /*
-                Hér er hægt að setja inn kall í einhverja lógík.
-                Hægt að dæla upplýsingum inn í model.
-            */
-             return data;
-        });
-        
-        
-        
+            int data = Integer.parseInt(req.queryParams("id"));
+            int state = ttt.getState();
+            if(state > 0) {
+                ttt.setup();
+                return -1;
+            }
+            ttt.setBlockState(data);
+            return (ttt.getState()) | (ttt.getBlockState(data) << 8);
+        }); 
     }
 
     static int getHerokuPort() {
