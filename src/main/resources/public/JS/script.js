@@ -24,12 +24,23 @@ $(document).ready(function() {
                 }
                 if (state == 1) {
                     document.getElementById('gameInfo').innerHTML = 'X is the WINNER!';
+                    document.getElementById('modal-info').innerHTML = 'X is the WINNER!';
+                    $("#myModal").modal();
                 } else if (state == 2) {
                     document.getElementById('gameInfo').innerHTML = 'O is the WINNER!';
+                    document.getElementById('modal-info').innerHTML = 'O is the WINNER!';
+                    $("#myModal").modal();
                 } else if(state == 3) {
                     document.getElementById('gameInfo').innerHTML = 'Tie!';
+                    document.getElementById('modal-info').innerHTML = 'Its a Tie!';
+                    $("#myModal").modal();
                 }
             }
         });
     });
+    $("#restart-game-button").click(function() {
+       location.reload(); 
+    });
 });
+
+
