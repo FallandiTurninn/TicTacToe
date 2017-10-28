@@ -3,23 +3,23 @@ notifications:
   email: false
   slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44
   
-   addons:
-    chrome: stable
-deploy:
-  provider: heroku
-  api_key: acb27651-119b-486d-991a-7989c9b0cd23
-  app: tranquil-castle-98562
-  on:
-    repo: FallandiTurninn/TicTacToe
+addons:
+ chrome: stable
+    
 before_install:
  - chmod +x gradlew
  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 after_install:
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 https://tranquil-castle-98562.herokuapp.com &
  
- before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
-  
-  
+before_script:
+ - "export DISPLAY=:99.0"
+ - "sh -e /etc/init.d/xvfb start"
+ - sleep 3 # give xvfb some time to start
+      
+deploy:
+  provider: heroku
+  api_key: acb27651-119b-486d-991a-7989c9b0cd23
+  app: tranquil-castle-98562
+  on:
+    repo: FallandiTurninn/TicTacToe
