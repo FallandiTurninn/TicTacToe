@@ -16,9 +16,9 @@ html, body {
     padding-right: 10px;
 }
 
-.gameInfo {
-    padding-left: 10px;
-    padding-right: 10px;
+.restart-game-info {
+    margin:auto;
+    display:block;
 }
 
 .gameCell {
@@ -31,7 +31,7 @@ html, body {
     border-bottom-color: transparent;
 }
 
-h1 {
+.gameInfo {
     text-align: center;
 }
 
@@ -41,8 +41,8 @@ table {
     font-size:  130px;
     text-align: center;
     table-layout: fixed;
-    width: 600px;
-    height: 600px;
+    width: 560px;
+    height: 560px;
 }
 
 td {

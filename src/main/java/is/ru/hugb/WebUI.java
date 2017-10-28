@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-
 public class WebUI {
     
     public static void main(String[] args) {
+        // Creates a 3x3 tic tac toe board
         TicTacToe ttt = new TicTacToe(3);
 
         port(getHerokuPort());
@@ -17,19 +17,12 @@ public class WebUI {
         
         // main site
         get("/", (req, res) -> {
-            return new ModelAndView(null, "start-game.hbs"); 
-        }, new HandlebarsTemplateEngine());
-        
-        // post function to start a game from index
-        post("/game", (req, res) -> {
-            // gameMode is either 1 or 2. 
-            String gameMode = req.queryParams("gameMode");
-            ttt.setup(gameMode.equals("2"));
-            return new ModelAndView(null, "board.hbs");    
+            ttt.setup();
+            return new ModelAndView(null, "board.hbs"); 
         }, new HandlebarsTemplateEngine());
         
         // post function which gets called after every 'move' in tic tac toe
-        post("/game/move", (req, res) -> {
+        post("/move", (req, res) -> {
             int id = Integer.parseInt(req.queryParams("id"));
             int state = ttt.getState();
             if(state > 0) {
@@ -41,7 +34,10 @@ public class WebUI {
         }); 
     }
 
-    static int getHerokuPort() {
+    /**
+     * Returns the heroku port
+     **/
+    private static int getHerokuPort() {
         ProcessBuilder psb = new ProcessBuilder();
 		if (psb.environment().get("PORT") != null) {
 			return Integer.parseInt(psb.environment().get("PORT"));
