@@ -10,8 +10,11 @@ git reset --hard
 
 git pull pages master
 git rm -r docs
-git fetch origin Doc_conversion #master  # gets all the info from our main branch
-git checkout origin/Doc_conversion -- docs #master -- docs  gets only the docs folder
+git fetch origin master  # gets all the info from our main branch
+git checkout origin/master -- docs # gets only the docs folder
+cd docs
+echo "blas" > bla.txt
+cd ..
 git add docs
 git commit -m "sending docs to FallandiTurninn.github.io"  
 git push --quiet pages temp:master  #pushes to our gitpages site
