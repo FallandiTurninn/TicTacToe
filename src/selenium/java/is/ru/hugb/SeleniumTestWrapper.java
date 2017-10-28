@@ -10,9 +10,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
 public abstract class SeleniumTestWrapper {
-  ChromeOptions options = new ChromeOptions()
+  ChromeOptions options = new ChromeOptions();
   //options.addExtensions(new File("/path/to/extension.crx"))
-  options.setBinary(new File("/home/travis/"));
+  options.setBinary(new File("/home/travis/")); //"
 
 
   static ChromeDriver driver;
