@@ -21,6 +21,11 @@ before_script:
 script:
  - ./gradlew check
 
+branches:
+  only:
+   - heroku_staging
+   - master
+
 deploy:
   provider: heroku
   api_key: 
