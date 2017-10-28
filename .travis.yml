@@ -22,8 +22,7 @@ script:
  - ./gradlew check
 
 
-deploy:
-
+before_deploy:
   - provider: heroku
     api_key: 1983693b-f02d-4342-99e6-adcea68ceb7f
     app: evening-hollows-74327
@@ -31,6 +30,7 @@ deploy:
       repo: FallandiTurninn/TicTacToe
       branch: heroku_staging
 
+deploy:
   - provider: heroku
     api_key: acb27651-119b-486d-991a-7989c9b0cd23
     app: tranquil-castle-98562
