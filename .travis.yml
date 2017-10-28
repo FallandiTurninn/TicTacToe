@@ -76,6 +76,8 @@ jobs:
       install:
        - stack setup
        - stack install pandoc
+      before_script: skip
+      script: skip
       after_success:
        - ./convertToPdf.sh 
        - ./deployToPages.sh
