@@ -12,3 +12,4 @@ git remote add pages git@github.com:FallandiTurninn/FallandiTurninn.github.io.gi
 git push --quiet pages temp:master  #pushes to our gitpages site
 # should go to the main branch and kill the temp branch
 git remote rm pages
+git branch -D temp
