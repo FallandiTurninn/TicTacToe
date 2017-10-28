@@ -33,4 +33,5 @@ deploy:
   on:
     condition: $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "heroku_staging"
     repo: FallandiTurninn/TicTacToe
+    all_branches: true
 
