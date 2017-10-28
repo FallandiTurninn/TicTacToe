@@ -21,10 +21,6 @@ before_script:
 script:
  - ./gradlew check
 
-branches:
-  only:
-   - heroku_staging
-   - master
 
 deploy:
   provider: heroku
@@ -35,5 +31,6 @@ deploy:
     master:tranquil-castle-98562
     heroku_staging:evening-hollows-74327
   on:
+    condition: $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "heroku_staging"
     repo: FallandiTurninn/TicTacToe
 
