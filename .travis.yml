@@ -2,6 +2,9 @@ language: java
 notifications:
   email: false
   slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44
+  
+   addons:
+    chrome: stable
 deploy:
   provider: heroku
   api_key: acb27651-119b-486d-991a-7989c9b0cd23
@@ -19,6 +22,4 @@ after_install:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
   
- addons:
-    chrome: stable
   
