@@ -1,12 +1,26 @@
 language: java
+
 notifications:
   email: false
   slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44
+
+before_install:
+ - chmod +x gradlew
+
+install:
+ - ./gradlew assemble
+ - ./gradlew check
+
+before_script:
+    - echo $TRAVIS_COMMIT
+    - echo $TRAVIS_TAG
+    - echo $TRAVIS_BRANCH
+    - echo $TRAVIS_BUILD_NUMBER
+    - echo $TRAVIS_REPO_SLUG
+
 deploy:
   provider: heroku
   api_key: acb27651-119b-486d-991a-7989c9b0cd23
   app: tranquil-castle-98562
   on:
     repo: FallandiTurninn/TicTacToe
-before_install:
- - chmod +x gradlew
