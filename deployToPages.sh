@@ -13,4 +13,5 @@ git pull pages master
 git push --quiet pages temp:master  #pushes to our gitpages site
 # should go to the main branch and kill the temp branch
 git remote rm pages
+git checkout Doc_conversion # !!!!!!!Change to master in final version
 git branch -D temp
