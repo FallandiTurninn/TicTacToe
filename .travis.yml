@@ -1,4 +1,5 @@
 language: java
+
 notifications:
   email: false
   slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44
@@ -16,7 +17,20 @@ before_script:
  - "export DISPLAY=:99.0"
  - "sh -e /etc/init.d/xvfb start"
  - sleep 3 # give xvfb some time to start
-      
+ - echo $TRAVIS_COMMIT
+ - echo $TRAVIS_TAG
+ - echo $TRAVIS_BRANC
+ - echo $TRAVIS_BUILD_NUMBER
+ - echo $TRAVIS_REPO_SLUG    
+
+install:
+ - ./gradlew assemble
+
+script:
+ - ./gradlew check
+ - ./gradlew jacocoTestReport
+ - bash <(curl -s https://codecov.io/bash)
+
 deploy:
   provider: heroku
   api_key: acb27651-119b-486d-991a-7989c9b0cd23
