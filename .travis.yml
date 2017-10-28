@@ -1,8 +1,34 @@
 language: java
 
+sudo: true
+
 notifications:
   email: false
   slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44
+
+deploy:
+  provider: heroku
+  api_key: acb27651-119b-486d-991a-7989c9b0cd23
+  app: tranquil-castle-98562
+  on:
+    repo: FallandiTurninn/TicTacToe
+
+before_install:
+ - chmod +x gradlew
+ - mkdir -p $HOME/.local/bin
+ - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+
+install:
+ - stack setup
+ - stack install pandoc
+
+after_success:
+ - ./convertToPdf.sh 
+ - ./deployToPages.sh
+
+env:
+  global:
+    secure: 47411ed10a18357559b874903f6b45511c1df0fd
 
 before_install:
  - chmod +x gradlew
@@ -44,3 +70,4 @@ deploy:
     on:
       repo: FallandiTurninn/TicTacToe
       branch: master
+
