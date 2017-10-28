@@ -20,6 +20,8 @@ before_script:
 
 script:
  - ./gradlew check
+ - ./gradlew jacocoTestReport
+ - bash <(curl -s https://codecov.io/bash)
 
 deploy:
   provider: heroku
@@ -27,4 +29,5 @@ deploy:
   app: tranquil-castle-98562
   on:
     repo: FallandiTurninn/TicTacToe
+
 
