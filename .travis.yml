@@ -9,7 +9,7 @@ before_install:
 
 install:
  - ./gradlew assemble
- - ./gradlew check
+
 
 before_script:
     - echo $TRAVIS_COMMIT
@@ -17,6 +17,9 @@ before_script:
     - echo $TRAVIS_BRANCH
     - echo $TRAVIS_BUILD_NUMBER
     - echo $TRAVIS_REPO_SLUG
+
+script:
+ - ./gradlew check
 
 deploy:
   provider: heroku
