@@ -9,6 +9,7 @@ git checkout origin/master -- docs # gets only the docs folder
 git remote add pages git@github.com:FallandiTurninn/FallandiTurninn.github.io.git  # makes a remote to out gitpages site
 git add docs
 git commit -m "sending docs to FallandiTurninn.github.io"  
+git pull pages master
 git push --quiet pages temp:master  #pushes to our gitpages site
 # should go to the main branch and kill the temp branch
 git remote rm pages
