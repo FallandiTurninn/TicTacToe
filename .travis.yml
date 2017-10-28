@@ -1,46 +1,17 @@
 jobs:
   include:
-    - stage: BuildAndDeployDevTest
+    - stage: BuildAndDeployDev
       language: java
-
       sudo: true
-
       notifications:
         email: false
         slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44
-
-      #env:
-      #  global:
-      #    secure: 47411ed10a18357559b874903f6b45511c1df0fd
-
       before_install:
        - chmod +x gradlew
-       #- mkdir -p $HOME/.local/bin
-       #- travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
-
       install:
        - ./gradlew assemble
-       #- stack setup
-       #- stack install pandoc
-
-
-      before_script:
-       - echo $TRAVIS_COMMIT
-       - echo $TRAVIS_TAG
-       - echo $TRAVIS_BRANCH
-       - echo $TRAVIS_BUILD_NUMBER
-       - echo $TRAVIS_REPO_SLUG
-
       script:
        - ./gradlew check
-       - ./gradlew jacocoTestReport
-       - bash <(curl -s https://codecov.io/bash)
-       
-       
-      #after_success:
-       #- ./convertToPdf.sh 
-       #- ./deployToPages.sh
-
       deploy:
         - provider: heroku
           api_key: 1983693b-f02d-4342-99e6-adcea68ceb7f
@@ -49,56 +20,50 @@ jobs:
             repo: FallandiTurninn/TicTacToe
             all_branches: true
 
-        - provider: heroku
-          api_key: 1983693b-f02d-4342-99e6-adcea68ceb7f
-          app: evening-hollows-74327
-          on:
-            repo: FallandiTurninn/TicTacToe
-            branch: heroku_staging
-
-
-    - stage: DeployProd
+    - stage: TestAndDeploy
       language: java
-
       sudo: true
-
       notifications:
         email: false
-        slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44  
-
+        slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44 
+      #env:
+      #  global:
+      #    secure: 47411ed10a18357559b874903f6b45511c1df0fd 
       addons:
         chrome: stable
-
       before_install:
        - chmod +x gradlew
-       
+       #- mkdir -p $HOME/.local/bin
+       #- travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
       install:
        - ./gradlew assemble
-
+       #- stack setup
+       #- stack install pandoc
       before_script:
-       - echo $TRAVIS_COMMIT
-       - echo $TRAVIS_TAG
-       - echo $TRAVIS_BRANCH
-       - echo $TRAVIS_BUILD_NUMBER
-       - echo $TRAVIS_REPO_SLUG
        - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/
        - unzip ~/chromedriver_linux64.zip -d ~/
        - rm ~/chromedriver_linux64.zip
        - sudo mv -f ~/chromedriver /usr/local/share/
        - sudo chmod +x /usr/local/share/chromedriver
        - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-       - whereis google-chrome-stable
-       - whereis chromedriver
-
       script:
        - ./gradlew check
        - "export DISPLAY=:99.0"
        - "sh -e /etc/init.d/xvfb start"
        - sleep 5
        - ./gradlew selenium
-
-
+       - ./gradlew jacocoTestReport
+       - bash <(curl -s https://codecov.io/bash)
+      #after_success:
+       #- ./convertToPdf.sh 
+       #- ./deployToPages.sh
       deploy:
+        - provider: heroku
+          api_key: 1983693b-f02d-4342-99e6-adcea68ceb7f
+          app: evening-hollows-74327
+          on:
+            repo: FallandiTurninn/TicTacToe
+            branch: heroku_staging
         - provider: heroku
           api_key: acb27651-119b-486d-991a-7989c9b0cd23
           app: tranquil-castle-98562
