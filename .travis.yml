@@ -21,8 +21,8 @@ before_install:
 
 install:
  - ./gradlew assemble
- - stack setup
- - stack install pandoc
+ #- stack setup
+ #- stack install pandoc
 
 
 before_script:
@@ -50,9 +50,9 @@ script:
  - bash <(curl -s https://codecov.io/bash)
  
  
-after_success:
- - ./convertToPdf.sh 
- - ./deployToPages.sh
+#after_success:
+ #- ./convertToPdf.sh 
+ #- ./deployToPages.sh
 
 deploy:
   - provider: heroku
