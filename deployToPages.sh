@@ -12,15 +12,13 @@ git pull pages master
 git rm -r docs
 git fetch origin master  # gets all the info from our main branch
 git checkout origin/master -- docs # gets only the docs folder
-cd docs
-echo "blas" > bla.txt
-cd ..
+
 git add docs
 git commit -m "sending docs to FallandiTurninn.github.io"  
 git push --quiet pages temp:master  #pushes to our gitpages site
 # should go to the main branch and kill the temp branch
 
-git checkout Doc_conversion # !!!!!!!Change to master in final version
+git checkout master 
 
 # should go to the main branch and kill the temp branch
 git remote rm pages
