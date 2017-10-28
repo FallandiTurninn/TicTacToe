@@ -55,3 +55,7 @@ td:nth-of-type(3) {
 td:hover {
     background: red;
 }
+
+.new-button-form {
+    display: inline-block;
+}

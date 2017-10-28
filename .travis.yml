@@ -20,7 +20,8 @@ before_script:
 
 script:
  - ./gradlew check
-
+ - ./gradlew jacocoTestReport
+ - bash <(curl -s https://codecov.io/bash)
 
 deploy:
   - provider: heroku
