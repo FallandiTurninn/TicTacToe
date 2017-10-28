@@ -23,15 +23,17 @@ script:
 
 
 deploy:
-  provider: heroku
-  api_key: 
-    master:acb27651-119b-486d-991a-7989c9b0cd23
-    heroku_staging:1983693b-f02d-4342-99e6-adcea68ceb7f
-  app: 
-    master:tranquil-castle-98562
-    heroku_staging:evening-hollows-74327
-  on:
-    condition: $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "heroku_staging"
-    repo: FallandiTurninn/TicTacToe
-    all_branches: true
 
+  - provider: heroku
+    api_key: 1983693b-f02d-4342-99e6-adcea68ceb7f
+    app: evening-hollows-74327
+    on:
+      repo: FallandiTurninn/TicTacToe
+      branch: heroku_staging
+
+  - provider: heroku
+    api_key: acb27651-119b-486d-991a-7989c9b0cd23
+    app: tranquil-castle-98562
+    on:
+      repo: FallandiTurninn/TicTacToe
+      branch: master
