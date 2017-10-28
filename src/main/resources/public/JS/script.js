@@ -38,13 +38,9 @@ $(document).ready(function() {
             }
         });
     });
-    $("#new-game-button").click(function() {
-       $.ajax({
-          method: 'GET',
-            url: '/',
-           success: function() {
-               console.log("new game success");
-           }
-       }); 
+    $("#restart-game-button").click(function() {
+       location.reload(); 
     });
 });
+
+

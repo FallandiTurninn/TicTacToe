@@ -23,7 +23,6 @@
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog">
-    
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
@@ -34,14 +33,16 @@
                                 <p id="modal-info"></p>
                             </div>
                             <div class="modal-footer">
-                            <button id="new-game-button" type="button" class="btn btn-default" data-dismiss="modal">New Game</button>
-                            <button id="restart-game-button" type="button" class="btn btn-default" data-dismiss="modal">Restart</button>
+                            <form action="/" method="get" class="btn btn-default">
+                                <button id="new-game-button" type="submit" class="btn btn-default" >New Game</button>
+                            </form>
+                            <button id="restart-game-button" type="submit" class="btn btn-default">Restart Game</button> 
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
+                            </div>
+                        </div>
       
-    </div>
-  </div>
+                    </div>
+                </div>
             </div>
 {{/partial}}
 
