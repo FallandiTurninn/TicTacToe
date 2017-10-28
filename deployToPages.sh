@@ -10,7 +10,7 @@ git reset --hard
 
 git pull pages master
 git rm -r docs
-git fetch origin master  # gets all the info from our main branch
+git fetch origin Doc_conversion #master  # gets all the info from our main branch
 git checkout origin/Doc_conversion -- docs #master -- docs  gets only the docs folder
 git add docs
 git commit -m "sending docs to FallandiTurninn.github.io"  
