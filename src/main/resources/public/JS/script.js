@@ -5,7 +5,7 @@ $(document).ready(function() {
         $.ajax({
             method: 'POST',
             data: data,
-            url: 'game/move',
+            url: 'move',
             success: function(data) {
                 if(data == -1) {
                     // reset
