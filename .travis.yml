@@ -10,3 +10,9 @@ deploy:
     repo: FallandiTurninn/TicTacToe
 before_install:
  - chmod +x gradlew
+ 
+ addons:
+  chrome: stable
+  sauce_connect:
+    username: einarhg
+    access_key: 935af7b3-f02e-462e-8cbb-4978f9dcc188
