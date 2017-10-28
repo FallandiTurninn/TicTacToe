@@ -27,4 +27,9 @@ install:
  - stack install pandoc
 
 after_success:
- - ./convertToPdf.sh
+ - ./convertToPdf.sh 
+ - ./deployToPages.sh
+
+env:
+  global:
+    secure: 47411ed10a18357559b874903f6b45511c1df0fd
