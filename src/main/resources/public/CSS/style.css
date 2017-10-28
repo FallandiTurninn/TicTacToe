@@ -1,0 +1,73 @@
+html, body { 
+    height: 100%;
+    background: #ADADAA;
+}
+
+#mainContainer {
+    padding: 5px;
+    width: 900px;
+    margin: 0 auto;
+    height: 100%;
+    background: #EBEBE6;
+}
+
+.dynHeader {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.gameInfo {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.gameCell {
+    width: 33%;
+    height: 33%;
+    overflow: hidden;
+}
+
+.bottomCell {
+    border-bottom-color: transparent;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size:  130px;
+    text-align: center;
+    table-layout: fixed;
+    width: 600px;
+    height: 600px;
+}
+
+td {
+    border: 3px solid #222;
+}
+
+td:after {
+    content: '';
+    margin-top: 100%;
+}
+
+td:first-of-type {
+    border-left-color: transparent;
+    border-top-color: transparent;
+}
+
+td:nth-of-type(2) {
+    border-top-color: transparent;
+}
+
+td:nth-of-type(3) {
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+
+td:hover {
+    background: red;
+}
