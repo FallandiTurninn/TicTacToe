@@ -5,14 +5,13 @@ import java.util.concurrent.TimeUnit;
 
 //import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
 public abstract class SeleniumTestWrapper {
-  ChromeOptions options = new ChromeOptions();
-  //options.addExtensions(new File("/path/to/extension.crx"))
-  options.setBinary(new File("/home/travis/")); //"
+  static ChromeOptions options = new ChromeOptions().setBinary("/usr/local/share/").addArguments("--headless").addArguments("--disable-gpu");
 
 
   static ChromeDriver driver;
