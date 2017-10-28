@@ -38,7 +38,7 @@ $(document).ready(function() {
             }
         });
     });
-    $("#restart-game-button").click(function() {
+    $("#new-game-button").click(function() {
        $.ajax({
           method: 'GET',
             url: '/',
