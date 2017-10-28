@@ -26,19 +26,12 @@ jobs:
       notifications:
         email: false
         slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44 
-      #env:
-      #  global:
-      #    secure: 47411ed10a18357559b874903f6b45511c1df0fd 
       addons:
         chrome: stable
       before_install:
        - chmod +x gradlew
-       #- mkdir -p $HOME/.local/bin
-       #- travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
       install:
        - ./gradlew assemble
-       #- stack setup
-       #- stack install pandoc
       before_script:
        - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/
        - unzip ~/chromedriver_linux64.zip -d ~/
@@ -54,9 +47,6 @@ jobs:
        - ./gradlew selenium
        - ./gradlew jacocoTestReport
        - bash <(curl -s https://codecov.io/bash)
-      #after_success:
-       #- ./convertToPdf.sh 
-       #- ./deployToPages.sh
       deploy:
         - provider: heroku
           api_key: 1983693b-f02d-4342-99e6-adcea68ceb7f
@@ -70,4 +60,23 @@ jobs:
           on:
             repo: FallandiTurninn/TicTacToe
             branch: master
+    - stage: ProduceDocumentation
+      if: (branch = master AND type IN (push, pull_request))
+      language: java
+      sudo: true
+      notifications:
+        email: false
+        slack: fallanditurninn:XO6AI0eBjaYis0hTIzbunM44 
+      env:
+        global:
+          secure: 47411ed10a18357559b874903f6b45511c1df0fd 
+      before_install:
+       - mkdir -p $HOME/.local/bin
+       - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+      install:
+       - stack setup
+       - stack install pandoc
+      after_success:
+       - ./convertToPdf.sh 
+       - ./deployToPages.sh
 
