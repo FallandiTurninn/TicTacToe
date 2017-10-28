@@ -27,3 +27,4 @@ deploy:
   app: tranquil-castle-98562
   on:
     repo: FallandiTurninn/TicTacToe
+
