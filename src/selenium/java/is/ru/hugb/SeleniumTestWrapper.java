@@ -21,7 +21,8 @@ public abstract class SeleniumTestWrapper {
     if (port == null) {
         port = "4567";
     }
-    baseUrl = "http://localhost:" + port;
+    //baseUrl = "http://localhost:" + port;
+    baseUrl = "https://ancient-gorge-29926.herokuapp.com";
   }
 
   @AfterClass
