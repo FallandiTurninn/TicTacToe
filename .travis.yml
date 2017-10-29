@@ -79,6 +79,8 @@ jobs:
       before_script: skip
       script: skip
       after_success:
-       - ./convertToPdf.sh 
-       - ./deployToPages.sh
+       - chmod +x ./bin/convertToPdf.sh 
+       - chmod +x ./bin/deployToPages.sh 
+       - ./bin/convertToPdf.sh 
+       - ./bin/deployToPages.sh
 
