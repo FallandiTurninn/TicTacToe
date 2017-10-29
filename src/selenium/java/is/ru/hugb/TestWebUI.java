@@ -24,7 +24,7 @@ public class TestWebUI extends SeleniumTestWrapper {
     WebElement cell = driver.findElement(By.id("0"));
     cell.click();
     Thread.sleep(1000);
-    assertEquals("O", cell.getText());
+    assertEquals("X", cell.getText());
   }
 
   @Test

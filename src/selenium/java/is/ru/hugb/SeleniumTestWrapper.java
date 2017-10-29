@@ -11,7 +11,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
 public abstract class SeleniumTestWrapper {
-  static ChromeOptions options = new ChromeOptions();//.setBinary("/usr/local/share/").addArguments("--headless").addArguments("--disable-gpu");
+  static ChromeOptions options = new ChromeOptions();
 
 
   static ChromeDriver driver;
