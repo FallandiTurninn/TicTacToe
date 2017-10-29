@@ -40,7 +40,7 @@ public class TestWebUI extends SeleniumTestWrapper {
 	Thread.sleep(500);
     driver.click("id = 2");
 	Thread.sleep(500);
-	assertEquals("X is the WINNER!", driver.get("id = gameInfo");
+	assertEquals("X is the WINNER!", driver.get("id = gameInfo"));
     Thread.sleep(3500);
     /* ... finish test! */
   }
