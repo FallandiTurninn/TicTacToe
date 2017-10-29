@@ -1,8 +1,9 @@
 {{#partial "board-container"}}
             <div id="boardContainer">
-                <h4 id="gameInfo">Game started.</h4>
-                <button id="restart-game-button" type="submit" class="btn btn-default">Restart Game</button>
-                <div class="gameBoard">
+		<div id="centerContainer">
+                	<h4 id="gameInfo">Game started.</h4>
+                </div>
+		<div class="gameBoard">
                     <table>
                         <tr>
                             <td id="0" class="gameCell"></td>
@@ -21,7 +22,10 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+		<div id="centerContainer">
+			<button id="restart-game-button" type="submit" class="btn btn-default">Restart Game</button>
+		</div>
+	</div>
 {{/partial}}
 
 {{> index.hbs}}

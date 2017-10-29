@@ -7,7 +7,7 @@ git config --global user.name "Travis CI"
 git config --global user.email "travis@travis-ci.org"
 
 # makes a remote to our gitpages site
-git remote add pages git@github.com:FallandiTurninn/FallandiTurninn.github.io.git  
+git remote add pages https://72d9a24fe57261164ce7883b01998be54e91a5f3@github.com/FallandiTurninn/FallandiTurninn.github.io.git #git@github.com:FallandiTurninn/FallandiTurninn.github.io.git  
 git checkout --orphan temp  # creates a new branch temp
 git reset --hard # resets temp so we are working empty branch
 
@@ -17,6 +17,12 @@ git pull pages master
 git rm -r docs # removes the docs folder and all its contents
 git fetch origin master  # gets all the info from our main branch and stores it 
 git checkout origin/master -- docs # gets only the docs folder from the stored master
+
+# convert the markdown documentation to pdf 
+pandoc ./docs/Admin.md -s -o ./docs/Admin.html
+pandoc ./docs/Design.md -s -o ./docs/Design.html
+pandoc ./docs/Development.md -s -o ./docs/Development.html
+
 git add docs # adds docs to be pushed
 git commit -m "Travis is sending docs to FallandiTurninn.github.io" # Travis commits it changes  
 git push --quiet pages temp:master  # pushes the changes to our gitpages site

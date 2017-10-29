@@ -11,6 +11,10 @@ html, body {
     background: #EBEBE6;
 }
 
+#centerContainer {
+    text-align: center;
+}
+
 .dynHeader {
     padding-left: 10px;
     padding-right: 10px;
@@ -38,11 +42,11 @@ html, body {
 table {
     border-collapse: collapse;
     margin: 0 auto;
-    font-size:  130px;
+    font-size:  80px;
     text-align: center;
     table-layout: fixed;
-    width: 560px;
-    height: 560px;
+    width: 460px;
+    height: 460px;
 }
 
 td {
@@ -69,5 +73,5 @@ td:nth-of-type(3) {
 }
 
 td:hover {
-    background: red;
+    background: blue;
 }
