@@ -57,7 +57,7 @@ To run the program on your local machine do the following:
 ### Build environment
 Run the build file in the root directory of the repository inside terminal or git bash with following: 
 
-        $ ./build.sh
+        $ ./gradlew
 
 This clears older build files and builds new with the new modified source code and relocates additional files.
 
