@@ -25,23 +25,22 @@ public class TestWebUI extends SeleniumTestWrapper {
     /* ... finish test! */
   }
   
-    @Test
+  @Test
   public void testXWin() throws Exception {
     driver.get(baseUrl);
     /* Remove Thread.sleep... */
     Thread.sleep(1000);
-    driver.click("id = 0");
+    driver.findElement(By.id("0")).click();
 	Thread.sleep(500);
-	driver.click("id = 3");
+    driver.findElement(By.id("3")).click();
 	Thread.sleep(500);
-    driver.click("id = 1");
+    driver.findElement(By.id("1")).click();
 	Thread.sleep(500);
-    driver.click("id = 4");
+    driver.findElement(By.id("4")).click();
 	Thread.sleep(500);
-    driver.click("id = 2");
+    driver.findElement(By.id("2")).click();
 	Thread.sleep(500);
-	assertEquals("X is the WINNER!", driver.get("id = gameInfo"));
-    Thread.sleep(3500);
+	assertEquals("X is the WINNER!", driver.findElement(By.id("gameInfo")).getAttribute("innerHTML"));
     /* ... finish test! */
   }
 }
