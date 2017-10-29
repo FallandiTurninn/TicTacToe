@@ -1,10 +1,11 @@
-# Tic Tac Toe - Decelopment Manual
+
+# Tic Tac Toe - Development Manual
 
 ### Introduction
-These are some steps on how to set up for development of tic tac toe for either new developers or new teams. The manual gives an overview of the system, the requirements needed to run and build the program and where to find
+These are some steps on how to set up for development of tic tac toe for either new developers or new teams. The manual gives an overview of the system, the requirements needed for running and building the program and where to find them.
 
 ### System Overview
-The tic tac toe systemâ€™s main back end syntax is java and front end is written with HTML, CSS and javascript. The front end also uses the java spark ([spark documentation](http://sparkjava.com/documentation#getting-started)) UI framework to handle http requests between logic and UI. 
+The Tic Tac Toe system’s main back end syntax is java and front end is written with HTML, CSS and javascript. The front end also uses the java spark ([spark documentation](http://sparkjava.com/documentation#getting-started)) UI framework to handle http requests between logic and UI. 
 
 ### System Requirements
 The following are some software and package requirements needed to run.
@@ -57,9 +58,16 @@ To run the program on your local machine do the following:
 ### Build environment
 Run the build file in the root directory of the repository inside terminal or git bash with following: 
 
-        $ ./gradlew
+        $ ./gradlew clean build
 
 This clears older build files and builds new with the new modified source code and relocates additional files.
+
+### Deploying changes
+When modifications to the code are done they should be on a feature branch while in development.
+1. When feature branches are ready, the developer should request pull request to the staging branch.
+2. Another developer reviews the pull request and accepts or declines.
+3. To deploy to production a developer should request pull request from staging to master.
+4. System admin reviews the pull request to master and accept or declines.
 
 ### Dependencies
 
