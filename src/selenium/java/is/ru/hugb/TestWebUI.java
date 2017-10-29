@@ -22,7 +22,7 @@ public class TestWebUI extends SeleniumTestWrapper {
     WebElement cell = driver.findElement(By.id("0"));
     cell.click();
     Thread.sleep(1000);
-    assertEquals("X", cell.getText());
+    assertEquals("O", cell.getText());
   }
 
   public void testRestart() throws Exception {
