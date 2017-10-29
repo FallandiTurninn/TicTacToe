@@ -6,6 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+/**
+*   The main class for user interface. Built with Java spark UI framework.
+*   Class includes main running function.
+*
+*/
 public class WebUI {
     
     public static void main(String[] args) {
@@ -36,6 +41,8 @@ public class WebUI {
 
     /**
      * Returns the heroku port
+     *
+     * @return an integer of the heroku port value (default 4567)
      **/
     private static int getHerokuPort() {
         ProcessBuilder psb = new ProcessBuilder();
