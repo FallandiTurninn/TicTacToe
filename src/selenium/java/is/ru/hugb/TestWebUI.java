@@ -11,7 +11,6 @@ public class TestWebUI extends SeleniumTestWrapper {
 
   @Test
   public void testTitleMatches() {
-    Thread.sleep(500);
     driver.get(baseUrl);
 
     assertEquals("Tic Tac Toe", driver.getTitle());
@@ -19,7 +18,6 @@ public class TestWebUI extends SeleniumTestWrapper {
   
   @Test
   public void testClick() throws Exception {
-    Thread.sleep(500);
     driver.get(baseUrl);
 
     Thread.sleep(1000);
@@ -31,7 +29,6 @@ public class TestWebUI extends SeleniumTestWrapper {
 
   @Test
   public void testRestart() throws Exception {
-    Thread.sleep(500);
     driver.get(baseUrl);
 
     Thread.sleep(1000);
@@ -64,7 +61,6 @@ public class TestWebUI extends SeleniumTestWrapper {
 
   @Test
   public void testXWin() throws Exception {
-    Thread.sleep(500);
     driver.get(baseUrl);
 
     Thread.sleep(2000);
@@ -83,7 +79,6 @@ public class TestWebUI extends SeleniumTestWrapper {
 
   @Test
   public void testOWin() throws Exception {
-    Thread.sleep(500);
     driver.get(baseUrl);
 
     Thread.sleep(2000);
@@ -104,7 +99,6 @@ public class TestWebUI extends SeleniumTestWrapper {
   
   @Test
   public void testTie() throws Exception {
-    Thread.sleep(500);
     driver.get(baseUrl);
 
     Thread.sleep(2000);
