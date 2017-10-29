@@ -17,6 +17,12 @@ git pull pages master
 git rm -r docs # removes the docs folder and all its contents
 git fetch origin master  # gets all the info from our main branch and stores it 
 git checkout origin/master -- docs # gets only the docs folder from the stored master
+
+# convert the markdown documentation to pdf 
+pandoc ./docs/Admin.md -s -o ./docs/Admin.html
+pandoc ./docs/Design.md -s -o ./docs/Design.html
+pandoc ./docs/Development.md -s -o ./docs/Development.html
+
 git add docs # adds docs to be pushed
 git commit -m "Travis is sending docs to FallandiTurninn.github.io" # Travis commits it changes  
 git push --quiet pages temp:master  # pushes the changes to our gitpages site
