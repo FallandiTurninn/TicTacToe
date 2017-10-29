@@ -14,6 +14,14 @@ public class TicTacToeTest {
     }
 
     @Test
+    public void setBlockStateFailedTest() {
+        TicTacToe game = new TicTacToe(3);
+        game.setup();
+        game.setBlockState(0);
+        assertEquals(false, game.setBlockState(0));
+    }
+
+    @Test
     public void getBlockStateTest() {
         TicTacToe game = new TicTacToe(3);
         game.setup();
