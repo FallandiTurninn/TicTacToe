@@ -70,10 +70,20 @@ Travis is an automated continuous integration server and is used as such for uni
 * [Documentation](https://docs.travis-ci.com/) - Documentations with a get started feature
 
 ##### Heroku
+Heroku is a container-based cloud Platform which developers use to deploy their apps. The tic tac toe already
+has all files set up for connection on heroku. Please refer to administrator about location. It is reccomended that
+decelopers have an account with heroku and read the documentation.
 
+* https://www.heroku.com/- Sign up from main site
+* [Java documentation](https://devcenter.heroku.com/categories/java) - Heroku java documentation center
 
 ##### Spark
 Is a java web UI micro framework which uses http requests to send data.
+
 * [Documentation](http://sparkjava.com/documentation) - Documentations with a get started feature
 
-##### selenium
+##### Selenium
+Selenium is for automating web applications for testing purposes and is used in 
+this application for testing the UI. 
+
+* [Documentation](http://www.seleniumhq.org/docs/) - The selenium documentation

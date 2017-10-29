@@ -113,4 +113,21 @@ If you have finished the instructions above then we can get to the fun part.
 8. A new window opens up with your application. Copy the URL and send to your friends!
 
 ### System Maintenance
+Maintaining the system mainly goes through heroku the same way as the app is create with heroku. As you go you could add code to the application and push it to the deployed project you follow these instructions:
 
+1. Open your shell terminal or git bash for windows.
+
+2. Login to heruko with the following command. You will need to provide the email and password you registered with heroku. 
+    ```sh
+    $ heroku login
+    ```
+    
+3. Navigate to the Tic tac toe root directory. Example: 
+    ```sh
+    $ cd subfolder/anotherfolder/TicTacToe
+    ```
+
+4. Use git to commit and push the changes to heroku. 
+    ```sh
+    $ git commit -m “Modified Heroku” | git push heroku master
+    ```
