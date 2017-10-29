@@ -26,7 +26,7 @@ Follow the instruction below to install git for windows, mac and linux and git b
 [Gradle installation](https://gradle.org/install/)
 
 ###### GitHub
-1. If you don’t have a github account already then use the link below and join up, its free.
+1. If you don’t have a github account already then use the link below and join up.
 [GitHub](www.github.com)
 
 2. Open a shell like terminal or git bash and follow the instructions on how to connect to github remote repositories locally.
@@ -65,7 +65,7 @@ In order to run and maintain the project you will need the product files.
     $ git clone the_url_goes_here
     ```
 Now the product files and repository is ready to use on your local device.
-
+    
 ### System Deployment
 
 ##### How to run locally
@@ -84,7 +84,7 @@ If you have finished the instructions above then we can get to the fun part.
 4. Now the server is running on your localhost under port 4567. Open any browser and type the URL: [http://localhost:4567/](http://localhost:4567/)
 5. Have fun!
 
-##### How to deploy on Heroku
+##### How to deploy
 
 1. Open your shell terminal or git bash for windows.
 
@@ -92,25 +92,31 @@ If you have finished the instructions above then we can get to the fun part.
     ```sh
     $ heroku login
     ```
-    
-3. Navigate to the Tic tac toe root directory. Example: 
+  
+3. Go to [Travis-ci](www.travis-ci.org) and sign in with your github account. 
+
+4. In the Travis dashboard turn ON the tic tac toe repo button. 
+  
+5. Navigate to the Tic tac toe root directory. Example: 
     ```sh
     $ cd subfolder/anotherfolder/TicTacToe
     ```
     
-4. Create new app in heroku from the root directory of tic tac toe. 
+6. Create new app in heroku from the root directory of tic tac toe. 
     ```sh
     $ heroku apps:create
-    ```
+  ```
 
-5. Use git to commit and push the changes to heroku. 
+7. Modify the .travis.yml file in the repository to your heroku and travis environment. For more information check [Travis](http://docs.travis-ci.com/user/languages/java/) for better understanding about travis yml files.
+
+8. Use git to commit and push the changes to heroku. 
     ```sh
     $ git commit -m “Added Heroku” | git push heroku master
     ```
     
-6. Log into [heroku](www.heroku.com) and you should have a new application in your dashboard.
-7. Open the app from the dashboard and click “Open app” on the right side.
-8. A new window opens up with your application. Copy the URL and send to your friends!
+9. Log into [heroku](www.heroku.com) and you should have a new application in your dashboard.
+10. Open the app from the dashboard and click “Open app” on the right side.
+11. A new window opens up with your application. Copy the URL and send to your friends!
 
 ### System Maintenance
 Maintaining the system mainly goes through heroku the same way as the app is create with heroku. As you go you could add code to the application and push it to the deployed project you follow these instructions:
