@@ -1,13 +1,16 @@
 #!/bin/bash
 set -e
 echo "starting build"
+
 # configures the git username and email so we can se that the push was made by travis
 git config --global user.name "Travis CI"
 git config --global user.email "travis@travis-ci.org"
+
 # makes a remote to our gitpages site
 git remote add pages git@github.com:FallandiTurninn/FallandiTurninn.github.io.git  
 git checkout --orphan temp  # creates a new branch temp
 git reset --hard # resets temp so we are working empty branch
+
 # pulls our pages site master to the clean temp
 # its done to resovle merge conflicts that will appear otherwise
 git pull pages master
@@ -18,6 +21,7 @@ git add docs # adds docs to be pushed
 git commit -m "Travis is sending docs to FallandiTurninn.github.io" # Travis commits it changes  
 git push --quiet pages temp:master  # pushes the changes to our gitpages site
 git checkout master # change the branch from temp to master
+
 # Clean up our mess
 git remote rm pages # removes the remote to pages 
 git branch -D temp # kills the temporary branch 
