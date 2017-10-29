@@ -61,7 +61,7 @@ jobs:
             repo: FallandiTurninn/TicTacToe
             branch: master
     - stage: ProduceDocumentation
-      if: ((branch = master AND type IN (push, pull_request)) OR branch = Docs)
+      if: (branch = master AND type IN (push, pull_request))
       language: java
       sudo: true
       notifications:
