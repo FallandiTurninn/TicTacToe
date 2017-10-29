@@ -34,6 +34,8 @@ public class TicTacToe {
 	/**
      * New instance of TicTacToe with the ability to choose the grid size
      * Setup must be called before the game can start.
+     *
+     * @param gridSize the size of the gameboard grid
      */
 	public TicTacToe(int gridSize) {
 		this.gridSize = gridSize;
@@ -41,6 +43,9 @@ public class TicTacToe {
 
 	/**
      * Sets the state of a block with a certain id. The state set depends on the current player
+     *
+     * @param id the id of the block in the game grid which needs to change.
+     * @return false if the block already has a state, true if not.
      */
 	public boolean setBlockState(int id) {
 		// Don't update if block state is already set
@@ -57,6 +62,9 @@ public class TicTacToe {
 
 	/**
      * Returns the state of an individual block with a set row and column based on id
+     *
+     * @param id the id of the block in the gameboard trying to fetch.
+     *  @return the row and column of the block.
      */
 	public int getBlockState(int id) {
 		int row = getRow(id, gridSize);
@@ -65,7 +73,9 @@ public class TicTacToe {
 	}
 
 	/**
-     * Returns the current state of the game. 0 = keep going, 1 = X wins, 2 = O wins, 3 = tie
+     * Checks the state of the game whether either player has won or need to keep going.
+     * 
+     * @return the state of the game. 0 = keep going, 1 = X wins, 2 = O wins, 3 = tie
      */
 	public int getState() {
 		// Diaogonal counters
@@ -117,6 +127,10 @@ public class TicTacToe {
 
 	/**
      * Returns the row of a cell based on the id and the grid size
+     *  
+     * @param id id of the block inside the boardgame
+     * @param gridSize the size of the grid
+     * @return id/gridSize
      */	
 	private static int getRow(int id, int gridSize) {
 		return id / gridSize;
@@ -124,6 +138,10 @@ public class TicTacToe {
 
 	/**
      * Returns the column of a cell based on the id and grid size
+     *  
+     * @param id id of the block inside the boardgame
+     * @param gridSize the size of the grid
+     * @return id % gridSize
      */
 	private static int getColumn(int id, int gridSize) {
 		return id % gridSize;
@@ -131,6 +149,8 @@ public class TicTacToe {
 
 	/**
      * Return the player next up in the game
+     * 
+     * @param player the id of player
      */
 	private static int getNextPlayer(int player) {
 		return player == 1 ? 2 : 1;
