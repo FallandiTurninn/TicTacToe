@@ -8,14 +8,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.Keys;
 
 public class TestWebUI extends SeleniumTestWrapper {
+
   @Test
   public void testTitleMatches() {
+    Thread.sleep(500);
     driver.get(baseUrl);
-    assertEquals("Tic Tac Toe", driver.getTitle());
 
+    assertEquals("Tic Tac Toe", driver.getTitle());
   }
   
+  @Test
   public void testClick() throws Exception {
+    Thread.sleep(500);
     driver.get(baseUrl);
 
     Thread.sleep(1000);
@@ -25,13 +29,15 @@ public class TestWebUI extends SeleniumTestWrapper {
     assertEquals("O", cell.getText());
   }
 
+  @Test
   public void testRestart() throws Exception {
+    Thread.sleep(500);
     driver.get(baseUrl);
 
     Thread.sleep(1000);
     WebElement tic0 = driver.findElement(By.id("0"));
     WebElement tic1 = driver.findElement(By.id("1"));
-    WebElement btn = driver.findElement(By.id("restart-game-button"));
+    WebElement btn  = driver.findElement(By.id("restart-game-button"));
 
     // Set tic 0 to X
     tic0.click();
@@ -58,8 +64,9 @@ public class TestWebUI extends SeleniumTestWrapper {
 
   @Test
   public void testXWin() throws Exception {
+    Thread.sleep(500);
     driver.get(baseUrl);
-    /* Remove Thread.sleep... */
+
     Thread.sleep(2000);
     driver.findElement(By.id("0")).click();
     Thread.sleep(1000);
@@ -76,7 +83,9 @@ public class TestWebUI extends SeleniumTestWrapper {
 
   @Test
   public void testOWin() throws Exception {
+    Thread.sleep(500);
     driver.get(baseUrl);
+
     Thread.sleep(2000);
     driver.findElement(By.id("0")).click();
     Thread.sleep(1000);
@@ -95,7 +104,9 @@ public class TestWebUI extends SeleniumTestWrapper {
   
   @Test
   public void testTie() throws Exception {
+    Thread.sleep(500);
     driver.get(baseUrl);
+
     Thread.sleep(2000);
     driver.findElement(By.id("0")).click();
     Thread.sleep(1000);
