@@ -7,7 +7,7 @@ git config --global user.name "Travis CI"
 git config --global user.email "travis@travis-ci.org"
 
 # makes a remote to our gitpages site
-git remote add pages https://72d9a24fe57261164ce7883b01998be54e91a5f3@github.com/FallandiTurninn/FallandiTurninn.github.io.git #git@github.com:FallandiTurninn/FallandiTurninn.github.io.git  
+git remote add pages https://@85688e3c18dfb0dfcf94f0011c82f48d86b2e0dgithub.com/FallandiTurninn/FallandiTurninn.github.io.git #git@github.com:FallandiTurninn/FallandiTurninn.github.io.git  
 git checkout --orphan temp  # creates a new branch temp
 git reset --hard # resets temp so we are working empty branch
 
