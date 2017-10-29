@@ -53,7 +53,7 @@ jobs:
           app: evening-hollows-74327
           on:
             repo: FallandiTurninn/TicTacToe
-            branch: heroku_staging
+            branch: staging
         - provider: heroku
           api_key: acb27651-119b-486d-991a-7989c9b0cd23
           app: tranquil-castle-98562
@@ -79,6 +79,8 @@ jobs:
       before_script: skip
       script: skip
       after_success:
-       - ./convertToPdf.sh 
-       - ./deployToPages.sh
+       - chmod +x ./bin/convertToPdf.sh 
+       - chmod +x ./bin/deployToPages.sh 
+       - ./bin/convertToPdf.sh 
+       - ./bin/deployToPages.sh
 
