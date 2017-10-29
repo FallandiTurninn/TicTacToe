@@ -79,7 +79,7 @@ public class TicTacToe {
 			int countRow = 0;
 			int countColumn = 0;
 			// Check the diagonal line starting from coordinates (0, 0)
-			if(data[i][i] == lastPlayer) {
+			if (data[i][i] == lastPlayer) {
 				countSide1++;
 			}
 			// Check the diagonal line starting from coordinates (0, gridSize - 1)
@@ -97,18 +97,18 @@ public class TicTacToe {
 				}
 			}
 			// Check if a player has one horizontally and vertically
-			if(countRow == gridSize || countColumn == gridSize) {
+			if (countRow == gridSize || countColumn == gridSize) {
 				return lastPlayer;
 			}
 		}
 
 		// Check if a player has one diagonally
-		if(countSide1 == gridSize || countSide2 == gridSize) {
+		if (countSide1 == gridSize || countSide2 == gridSize) {
 			return lastPlayer;
 		}
 
 		// Check for a tie
-		if(totalMoves == gridSize * gridSize) {
+		if (totalMoves == gridSize * gridSize) {
 			return 3;
 		}
 		// Game is still going
