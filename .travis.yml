@@ -83,4 +83,3 @@ jobs:
        - chmod +x ./bin/deployToPages.sh 
        - ./bin/convertToPdf.sh 
        - ./bin/deployToPages.sh
-
