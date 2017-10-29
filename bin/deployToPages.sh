@@ -16,7 +16,7 @@ git reset --hard # resets temp so we are working empty branch
 git pull pages master
 git rm -r docs # removes the docs folder and all its contents
 git fetch origin master  # gets all the info from our main branch and stores it 
-git checkout origin/master -- docs # gets only the docs folder from the stored master
+git checkout origin master -- docs # gets only the docs folder from the stored master
 
 # convert the markdown documentation to pdf 
 pandoc ./docs/Admin.md -s -o ./docs/Admin.html
